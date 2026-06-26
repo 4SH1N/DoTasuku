@@ -17,4 +17,4 @@
 
 <% end %>
 
-<%= link_to "Add todo", new_task_todo_path(@task) %>
+<%= render "todos/form/form", task: @task, todo: @task.todos.new %>

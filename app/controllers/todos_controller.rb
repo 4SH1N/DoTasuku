@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
-  before_action set_task_find
-  before_action set_todo_find, only: %i[edit update destroy]
+  before_action :set_task_find
+  before_action :set_todo_find, only: %i[edit update destroy]
 
   def edit
   end

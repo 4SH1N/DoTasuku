@@ -1,20 +1,8 @@
 <%= link_to "Back", root_path %>
 <br><br><br>
-
-<h1><%= @task.title %></h1>
-<br><br>
-<p><%= @task.description %></p>
-<br><br>
-<p><%= @task.priority %></p>
-<br><br>
-<p><%= @task.due_date %></p>
+<%= render "tasks/task/tasklist" %>
 <br><br><br>
 
-<h2>Todo List</h2>
+<%= render "todos/todo/list" %>
 
-<% @task.todos.each do |todo| %>
-  <%= todo.content %>
-  <%= button_to "Delete ToDo", task_todo_path(@task, todo), method: :delete %>
-<% end %>
-
-<%= render "todos/form/form", task: @task, todo: @task.todos.new %>
+<%= render "todos/todo/form", task: @task, todo: @task.todos.new %>

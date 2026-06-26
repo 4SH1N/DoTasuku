@@ -14,7 +14,7 @@
 
 <% @task.todos.each do |todo| %>
   <%= todo.content %>
-
+  <%= button_to "Delete ToDo", task_todo_path(@task, todo), method: :delete %>
 <% end %>
 
 <%= render "todos/form/form", task: @task, todo: @task.todos.new %>

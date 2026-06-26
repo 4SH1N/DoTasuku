@@ -6,7 +6,6 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_user.tasks.new
   end
 
   def edit
@@ -26,7 +25,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "You have created you task successfully"
     else
-      render :new, status: :unprocessable_entity
+      render @task, status: :unprocessable_entity
     end
   end
 

@@ -5,3 +5,13 @@
 <p><%= @task.priority %></p>
 <br><br>
 <p><%= @task.due_date %></p>
+<br><br><br>
+
+<h2>Todo List</h2>
+
+<% @task.todos.each do |todo| %>
+  <%= todo.content %>
+
+<% end %>
+
+<%= link_to "Add todo", new_task_todo_path(@task) %>

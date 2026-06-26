@@ -1,0 +1,15 @@
+<%= form_with model: @task do |form| %>
+  <%= form.label :title, "Title" %><br>
+  <%= form.text_field :title %>
+  <br><br>
+  <%= form.label :description, "Description" %><br>
+  <%= form.text_area :description %>
+  <br><br>
+  <%= form.label :due_date, "Due date" %><br>
+  <%= form.date_field :due_date %>
+  <br><br>
+  <%= form.label :priority, "Priority" %><br>
+  <%= form.select :priority, [%w[Low low], %w[Medium medium], %w[High high]] %>
+  <br><br>
+  <%= form.submit %>
+<% end %>

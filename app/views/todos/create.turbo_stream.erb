@@ -1,0 +1,7 @@
+<%= turbo_stream.append "todos" do %>
+  <%= render @todo %>
+<% end %>
+
+<%= turbo_stream.replace "new_todo_form" do %>
+  <%= render "todos/form", task: @task, todo: Todo.new %>
+<% end %>

@@ -1,8 +1,17 @@
 <%= link_to "Back", root_path %>
+
 <br><br><br>
+
 <%= render "tasks/task/tasklist" %>
+
 <br><br><br>
 
-<%= render "todos/todo/list" %>
+<h2>Todo List</h2>
 
-<%= render "todos/todo/form", task: @task, todo: @task.todos.new %>
+<div id="todos">
+  <%= render @task.todos %>
+</div>
+
+<div id="new_todo_form">
+  <%= render "todos/form", task: @task, todo: @task.todos.new %>
+</div>

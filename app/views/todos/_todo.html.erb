@@ -1,0 +1,4 @@
+<div id="<%= dom_id(todo) %>">
+  <%= todo.content %>
+  <%= button_to "Delete ToDo", task_todo_path(todo.task, todo), method: :delete %>
+</div>

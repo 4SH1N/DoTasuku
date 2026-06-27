@@ -21,15 +21,21 @@ class TodosController < ApplicationController
     @todo = @task.todos.new(todo_params)
 
     if @todo.save
-      redirect_to @task, notice: "You have cerated your todo successfully"
+      respond_to do |format|
+        format.html { redirect_to @task }
+        format.turbo_stream
+      end
     else
-      render :new, status: :unprocessable_entity
+      render "tasks/show", status: :unprocessable_entity
     end
   end
 
   def destroy
     @todo.destroy
-    redirect_to @task, notice: "You have deleted the todo successfully"
+    respond_to do |format|
+      format.html { redirect_to @task, notice: "You have deleted the todo successfully" }
+      format.turbo_stream
+    end
   end
 
   private

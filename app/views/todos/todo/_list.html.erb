@@ -1,6 +1,0 @@
-<h2>Todo List</h2>
-
-<% @task.todos.each do |todo| %>
-  <%= todo.content %>
-  <%= button_to "Delete ToDo", task_todo_path(@task, todo), method: :delete %>
-<% end %>

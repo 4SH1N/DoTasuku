@@ -1,5 +1,9 @@
 <%= turbo_frame_tag dom_id(todo) do %>
   <%= todo.content %>
+  <%= form_with url: toggle_task_todo_path(todo.task, todo), method: :patch do |form| %>
+    <%= form.checkbox :status,
+                  { checked: todo.status, onchange: "this.form.requestSubmit()" } %>
+  <% end %>
   <%= link_to "Edit", edit_task_todo_path(todo.task, todo) %>
   <%= button_to "Delete ToDo", task_todo_path(todo.task, todo), method: :delete %>
 <% end %>

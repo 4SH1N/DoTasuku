@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   root "boards#main"
   get "main", to: "boards#main"
   resources "tasks" do
-    resources "todos", except: [ :index, :show, :new ]
+    resources "todos", except: [ :index, :show, :new ] do
+      member do
+        patch :toggle
+      end
+    end
   end
 end

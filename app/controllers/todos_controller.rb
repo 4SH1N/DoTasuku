@@ -1,6 +1,11 @@
 class TodosController < ApplicationController
   before_action :set_task_find
-  before_action :set_todo_find, only: %i[edit update destroy]
+  before_action :set_todo_find, only: %i[toggle edit update destroy]
+
+  def toggle
+    @todo.toggle!(:status)
+    render partial: "todos/todo", locals: { todo: @todo }
+  end
 
   def edit
   end

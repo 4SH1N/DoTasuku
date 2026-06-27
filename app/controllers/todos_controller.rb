@@ -11,7 +11,7 @@ class TodosController < ApplicationController
 
   def update
     if @todo.update(todo_params)
-      redirect_to @task, notice: "You have updated the todo list successfully"
+      render partial: "todos/todo", locals: { todo: @todo }
     else
       render :edit, status: :unprocessable_entity
     end

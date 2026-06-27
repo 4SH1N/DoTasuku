@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: "You have updated your task successfully"
+      render partial: "tasks/task/tasklist", locals: { task: @task }
     else
       render :edit, status: :unprocessable_entity
     end

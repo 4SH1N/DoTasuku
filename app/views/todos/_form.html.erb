@@ -1,5 +1,5 @@
-<%= form_with model: [task, todo] do |form| %>
-  <%= form.text_field :content %>
-  <br><br>
-  <%= form.submit %>
+<%= form_with model: [task, todo], class: "flex items-center gap-3" do |form| %>
+  <%= form.text_field :content, placeholder: "Add a new todo...",
+    class: "flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-800 placeholder-slate-400 shadow-sm transition-colors focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-500 dark:focus:border-indigo-400" %>
+  <%= form.submit class: "rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer dark:bg-indigo-500 dark:hover:bg-indigo-600" %>
 <% end %>

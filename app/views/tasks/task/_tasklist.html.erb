@@ -1,10 +1,26 @@
 <%= turbo_frame_tag dom_id(task) do %>
-  <h1><%= task.title %></h1>
-  <br><br>
-  <p><%= task.description %></p>
-  <br><br>
-  <p><%= task.priority %></p>
-  <br><br>
-  <p><%= task.due_date %></p>
-  <%= link_to "Edit", edit_task_path(task) %>
+  <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-700 dark:bg-slate-800">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100"><%= task.title %></h1>
+
+    <p class="mt-4 text-slate-600 leading-relaxed dark:text-slate-400"><%= task.description %></p>
+
+    <div class="mt-6 flex flex-wrap items-center gap-4 text-sm">
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
+        <%= task.priority&.capitalize %>
+      </span>
+      <span class="inline-flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <%= task.due_date&.strftime("%b %d, %Y") %>
+      </span>
+    </div>
+
+    <div class="mt-6">
+      <%= link_to edit_task_path(task),
+        class: "inline-flex items-center gap-2 rounded-lg bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-100 hover:text-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-900/40 dark:text-indigo-300 dark:hover:bg-indigo-900/60 dark:hover:text-indigo-200" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        Edit
+      <% end %>
+    </div>
+  </div>
 <% end %>

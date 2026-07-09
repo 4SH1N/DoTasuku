@@ -17,7 +17,7 @@ The goal of this project is not to build a production-ready application, but to 
 - Ruby on Rails
 - Hotwire (Turbo Frames & Turbo Streams)
 - Tailwind CSS
-- SQLite (development)
+- Postgresql
 
 ## Status
 
